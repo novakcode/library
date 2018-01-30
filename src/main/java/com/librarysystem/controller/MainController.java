@@ -13,4 +13,10 @@ public class MainController {
 	
 		return "library-home";
 	}
+	
+	@GetMapping("/library-login")
+	public String libraryLoginPage()
+	{
+		return "library-login";
+	}
 }
