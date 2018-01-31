@@ -1,0 +1,52 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body
+{
+	background-color: #333333;
+}
+
+
+.logout-form
+{
+	width:300px;
+	margin-left:5%;
+	margin-top:2%;
+	
+}
+
+
+#headline
+{
+	font-family:"Roboto",sans-serif;
+	font-weight:500;
+	color:white;
+	font-size:18px;
+	float:left;
+	
+	
+}
+
+.logout-form button
+{
+	margin-top:2%;
+	float:right;
+	font-family:"Roboto",sans-serif;
+	font-size:20px;
+	padding:7px 35px 7px 35px;
+	font-weight:bolder;
+	text-transform:uppercase;
+	color:white;
+	background:rgba(255,255,255,0);
+	border:solid 3px white;
+	
+}
+
+.logout-form button:hover,.logout-form button:active,.logout-form button:focus
+{
+	color:#a6a6a6;
+	cursor:pointer;
+	border-color: #a6a6a6;
+
+}
+
+
