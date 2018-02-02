@@ -1,10 +1,10 @@
 package com.librarysystem;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SpringBootWebApplication extends SpringBootServletInitializer{
@@ -14,6 +14,8 @@ public class SpringBootWebApplication extends SpringBootServletInitializer{
 		// TODO Auto-generated method stub
 		return builder.sources(SpringBootWebApplication.class);
 	}
+	
+	
 	
 	public static void main(String[] args)
 	{
