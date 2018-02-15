@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css?family=Lato);
 
 body
 {
@@ -9,6 +10,7 @@ body
 .logout-form
 {
 	width:300px;
+	height:100px;
 	margin-left:5%;
 	margin-top:2%;
 	
@@ -48,5 +50,56 @@ body
 	border-color: #a6a6a6;
 
 }
+
+.manage-container
+{
+
+	border-top:1px solid gray;
+	border-bottom:1px solid gray;
+	margin-top:5%;
+	height:60%;
+	
+}
+
+.manage-container h1
+{
+	
+	color:white;
+	font-size:30px;
+	margin-bottom:50px;
+	text-align:center;
+	font-family:Roboto;
+	
+}
+.buttons
+{
+	text-align:center;
+	margin-top:5%;
+	margin-left:0%;
+}
+
+.buttons button
+{
+	margin-right:10px;
+	font-family:"Roboto";
+	padding:5px 50px 5px 50px;
+	background:rgba(85, 85, 85, 1);
+	border:solid 2px #959595;
+	font-size:25px;
+	color:white;
+	width:25%;
+	
+	
+	
+}
+
+.buttons button:hover,.buttons button:active,buttons button:focus
+{
+	cursor:pointer;
+	background:rgba(85, 85, 85, 0.5);
+}
+
+
+
 
 
