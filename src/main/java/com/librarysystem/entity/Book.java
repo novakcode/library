@@ -7,21 +7,27 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name="Books")
 public class Book {
 		
 		
+		
 		@Id
+		@Pattern(regexp="\\d{3}-\\d{1}-\\d{6}-\\d{2}-\\d{1}")
 		@Column(name="isbn",length =  17,nullable =false)
 		private String isbn;
+		
 		
 		@Column(name="title",length = 120,nullable =false)
 		private String title;
 		
+		
 		@Column(name="author",length = 40,nullable = false)
 		private String author;
+		
 		
 		@Column(name="available",nullable = false)
 		private boolean available;

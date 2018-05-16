@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/book-register.css}"/>
+<title>Book Register</title>
 </head>
 <body>
+
+		<h1>Register Book</h1>
+		<form th:action="@{/book-register}" th:object="${newBook}" method="POST">
+			<table>
+			<tr>
+			<td><label>ISBN</label>
+			<input type="text" name="isbn"/></td>
+			</tr>
+			<tr>
+			<td><label>Title</label>
+			<input type="text" name="title"/></td>
+			</tr>
+			<tr>
+			<td><label>Author</label>
+			<input type="text" name="autdor"/></td>
+			</tr>
+			<tr>
+			<td><label>Available</label>
+			<input type="text" name="available"/></td>
+			</tr>
+			<tr>
+			<td><button type="submit">Register</button></td>
+			</tr>
+			</table>
+		</form>
+	
 
 </body>
 </html>

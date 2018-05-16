@@ -30,10 +30,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/","/library-home").access("hasRole('ROLE_ADMIN')");
+		http.authorizeRequests().antMatchers("/","/library-home",
+				"/book-register","/book-find","/book-loan",
+				"/member-register","/member-find","/member-renew")
+		.access("hasRole('ROLE_ADMIN')");
 		
 		http.authorizeRequests().and().formLogin().loginPage("/library-login")
-		.usernameParameter("username").passwordParameter("password").failureUrl("/login?error")
+		.usernameParameter("username").passwordParameter("password").failureUrl("/library-login?error")
 		.loginProcessingUrl("/login-form").defaultSuccessUrl("/library-home")
 		.and().logout().logoutUrl("/logout").logoutSuccessUrl("/library-login")
 		.and().csrf();
