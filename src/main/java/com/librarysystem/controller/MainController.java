@@ -12,7 +12,7 @@ import com.librarysystem.entity.Book;
 import com.librarysystem.service.BookService;
 import com.librarysystem.service.LoanedBookService;
 import com.librarysystem.service.MemberService;
-// Git commit test
+
 @Controller
 public class MainController {
 
