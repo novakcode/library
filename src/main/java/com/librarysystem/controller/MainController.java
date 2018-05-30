@@ -46,25 +46,31 @@ public class MainController {
 	@GetMapping("/book-find")
 	public String bookFindPage()
 	{
-		return "book-find";
+		return "book/book-find";
 	}
 	
 	@GetMapping("/book-loan")
 	public String bookLoanPage()
 	{
-		return "book-loan";
+		return "book/book-loan";
 	}
 	
 	@GetMapping("/book-register")
 	public String bookRegisterPage()
 	{
-		return "book-register";
+		return "book/book-register";
 	}
 	
 	// Post register
 	@PostMapping("/book-register")
 	public  String registerBook(@Valid Book book,BindingResult result)
 	{
+		
+		if(!result.hasErrors())
+		{
+			bookService.createOrUpdateBook(book);
+		}
+		
 		
 		
 		return "book-register";

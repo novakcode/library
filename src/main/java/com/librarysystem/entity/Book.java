@@ -2,29 +2,39 @@ package com.librarysystem.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.librarysystem.validators.IsbnConstraint;
 
 @Entity
 @Table(name="Books")
 public class Book {
 		
 		
-		
+	
+	   
+		@IsbnConstraint
 		@Id
-		@Pattern(regexp="\\d{3}-\\d{1}-\\d{6}-\\d{2}-\\d{1}")
 		@Column(name="isbn",length =  17,nullable =false)
 		private String isbn;
 		
-		
+		@NotEmpty
+		@Pattern(regexp="[a-zA-Z0-9 ]+",message="Title must contain only letters and numbers.")
 		@Column(name="title",length = 120,nullable =false)
 		private String title;
 		
 		
+		@NotEmpty
+		@Pattern(regexp="[a-zA-Z ]+",message = "Author name must contain only letters.")
 		@Column(name="author",length = 40,nullable = false)
 		private String author;
 		
@@ -32,7 +42,8 @@ public class Book {
 		@Column(name="available",nullable = false)
 		private boolean available;
 		
-		@OneToMany(mappedBy="book")
+		
+		@OneToMany(mappedBy="book" ,fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 		private List<LoanedBook> loanedBooks;
 		
 		
