@@ -1,9 +1,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" th:href="@{/css/book-register.css}"/>
+<link rel="stylesheet" th:href="@{/css/book/register.css}"/>
 <title>Book Register</title>
 </head>
 <body>
+	
+	<button id="back" onclick="location.href = '/library-home';" >Home</button>
+
 
 		<h1>Register Book</h1>
 		<form th:action="@{/book-register}" th:object="${newBook}" method="POST">

@@ -1,10 +1,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet" th:href="@{/css/book/find.css}"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/book-find.js"></script>
 <title>Find Book</title>
 </head>
 <body>
 
 
+		<button id="back" onclick="location.href = '/library-home';" >Home</button>
+
+			<h1>Find Book</h1>
+			<form th:action="@{/book-find}" method="POST">
+			<br/>
+		
+				<label id="field">ISBN</label><input type="text" name="searchField"/>
+					<select name="searchType" onchange="searchFieldChange(this)"  required>
+						<option selected disabled>By</option>
+						<option value="isbn">ISBN</option>
+						<option value="name">Name</option>
+						<option value="author">Author</option>
+					</select>
+					<br/>
+					<button type="submit">Search</button>
+			</form>
+			
+	
+		
 
 
 

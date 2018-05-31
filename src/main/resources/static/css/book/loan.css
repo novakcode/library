@@ -1,0 +1,16 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url("../../backButton.css")
+
+body
+{
+	background-color: #333333;
+	font-family:"Roboto","sans-serif";
+	
+	text-align:center;
+}
+
+
+
+
+

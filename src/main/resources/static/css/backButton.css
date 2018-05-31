@@ -1,0 +1,15 @@
+#back{
+	padding:10px 25px 10px 25px;
+	width:10%;
+	border-radius:10px;
+	font-family:Lato;
+	font-size:20px;
+	border:none;
+	font-weight:bold;
+}
+
+
+#back:hover,#back:active,#back:focus{
+	opacity:0.8;
+	cursor:pointer;
+}
