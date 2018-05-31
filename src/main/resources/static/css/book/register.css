@@ -1,12 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 @import url(https://fonts.googleapis.com/css?family=Lato);
+@import url("../backButton.css");
 
 body
 {
 	background-color: #333333;
 	font-family:"Roboto","sans-serif";
 	
-	
+	text-align:center;
 }
 
 
@@ -69,21 +70,5 @@ background-color:rgba(0,0,0,0.4);
 }
 
 
-#back{
-	padding:10px 25px 10px 25px;
-	width:10%;
-	margin-left:45%;
-	border-radius:10px;
-	font-family:Lato;
-	font-size:20px;
-	border:none;
-	font-weight:bold;
-}
-
-
-#back:hover,#back:active,#back:focus{
-	opacity:0.8;
-	cursor:pointer;
-}
 
 
