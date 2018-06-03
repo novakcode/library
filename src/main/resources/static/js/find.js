@@ -3,7 +3,8 @@ function searchFieldChange(field)
 	
 	var fieldValue = field.value;
 	
-	
+	$("#searchType").attr("name",fieldValue);
+	$("#form").attr("action","book-find-by-"+fieldValue);
 	$("#field").empty();
 	
 	if(fieldValue == "isbn")

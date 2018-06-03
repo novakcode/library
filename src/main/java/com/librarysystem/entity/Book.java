@@ -27,13 +27,13 @@ public class Book {
 		@Column(name="isbn",length =  17,nullable =false)
 		private String isbn;
 		
-		@NotEmpty
+		
 		@Pattern(regexp="[a-zA-Z0-9 ]+",message="Title must contain only letters and numbers.")
 		@Column(name="title",length = 120,nullable =false)
 		private String title;
 		
 		
-		@NotEmpty
+		
 		@Pattern(regexp="[a-zA-Z ]+",message = "Author name must contain only letters.")
 		@Column(name="author",length = 40,nullable = false)
 		private String author;

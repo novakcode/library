@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 @import url(https://fonts.googleapis.com/css?family=Lato);
-@import url("../backButton.css");
+@import url("../addons.css");
 
 body
 {
@@ -15,7 +15,7 @@ h1{
 	font-family:Roboto;
 	color:white;
 	text-align:center;
-	margin-top:10%;
+	margin-top:5%;
 }
 
 label{

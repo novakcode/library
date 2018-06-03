@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
+<title>Member Register</title>
+<link rel="stylesheet" th:href="@{/css/book/find.css}"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/find.js"></script>
+</head> 
 <body>
-
+	
+	<button id="back" onclick="location.href = '/library-home'" >Home</button>
+			
+		
+			<h1>Renew Member</h1>
+			<form th:action="@{/member-renew}" method="POST">
+			<br/>
+		
+				<label id="field">Type</label><input type="text" name="searchField"/>
+					<select name="searchType" onchange="searchFieldChange(this)"  required>
+						<option selected disabled>By</option>
+						<option value="card">Card</option>
+						<option value="name">Name</option>
+					</select>
+					<br/>
+					<input type="hidden" name="date_renewed" required>
+					<button type="submit">Renew</button>
+			</form>
+	
+	<p id="message" th:if="${message} != null" th:text="${message}"></p>
 </body>
 </html>

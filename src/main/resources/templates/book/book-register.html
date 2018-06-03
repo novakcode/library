@@ -5,8 +5,10 @@
 </head>
 <body>
 	
-	<button id="back" onclick="location.href = '/library-home';" >Home</button>
-
+	<button id="back" onclick="location.href = '/library-home'" >Home</button>
+	
+	
+	
 
 		<h1>Register Book</h1>
 		<form th:action="@{/book-register}" th:object="${newBook}" method="POST">
@@ -32,6 +34,8 @@
 			</tr>
 			</table>
 		</form>
+		
+		<p id="message" th:if="${message} != null" th:text="${message}"></p>
 	
 
 </body>

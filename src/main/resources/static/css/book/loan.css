@@ -1,17 +1,75 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 @import url(https://fonts.googleapis.com/css?family=Lato);
-@import url("../backButton.css");
+@import url("../addons.css");
 
 body
 {
 	background-color: #333333;
 	font-family:"Roboto","sans-serif";
-	
 	text-align:center;
 }
 
+container{
+	margin:0;
+	padding:0;
+}
 
 
+table
+{
+	margin-top:0%;
+	margin-left:34%;
+	background-color:rgba(255,255,255,0.1);
+	border-radius:5px;
+	width:400px;
+	height:250px;
+	text-align:center;
+	
+}
 
 
+table label
+{
+	
+	color:white;
+	font-family:"Roboto";
+	font-weight:600;
+	margin-right:2%;
+}
+
+table button
+{
+	background-color:rgba(0,0,0,0.6);
+	padding:7px 4px 7px 4px;
+	border:none;
+	color:white;
+	width:70%;
+	font-size:23px;
+	font-family:"Lato";
+	
+}
+ 
+table input
+{
+	color:white;
+	background-color:rgba(255,255,255,0.2);
+	border:none;
+	height:50%;
+	width:70%;
+	font-family:Roboto;
+	font-weight:bold;
+	font-size:15px;
+}
+
+h1{
+	font-family:Roboto;
+	color:white;
+	text-align:center;
+	margin-top:5%;
+}
+
+form button:hover,form button:active,form button:focus
+{
+background-color:rgba(0,0,0,0.4);	
+}
 

@@ -1,5 +1,7 @@
 package com.librarysystem.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.librarysystem.entity.Book;
 import com.librarysystem.service.BookService;
@@ -17,7 +20,8 @@ import com.librarysystem.service.MemberService;
 
 @Controller
 public class MainController {
-
+	
+	
 	@Autowired
 	private MemberService memberService;
 	
@@ -26,6 +30,12 @@ public class MainController {
 	
 	@Autowired
 	private LoanedBookService loanedBookService;
+	
+	
+	
+	
+	private static final int PAGE_SIZE  = 5;
+
 	
 	
 	
@@ -54,19 +64,63 @@ public class MainController {
 	@GetMapping("/book-find")
 	public String bookFindPage()
 	{
+		
 		return "book/book-find";
 	}
 	
-	
-	@PostMapping("/book-find")
-	public String findBook(@RequestParam("searchField")String searchField,@RequestParam("searchType")String searchType
+	@GetMapping("/book-find-by-isbn")
+	public String findBookByIsbn(@RequestParam("isbn")String isbn
 			,Model model)
 	{
 		
+			Book book = bookService.findBookByIsbn(isbn);
+			if(book == null)
+			{
+				return "redirect:/book-find";
+			}
+			model.addAttribute("book", book);
+			
+		return "book/book";
+	}
+
 	
-		return "redirect:/book-find";
+	@GetMapping("/book-find-by-author")
+	public String findBookByAuthor(@RequestParam("page")Optional<Integer> page,
+			@RequestParam("author")String author
+			,Model model)
+	{
+		
+		
+		
+
+		
+		
+	
+		return "redirect:/bookList";
 	}
 	
+	@GetMapping("/book-find-by-title")
+	public String findBookByTitle(@RequestParam("page")Optional<Integer> page,
+			@RequestParam("title")String title
+			,Model model)
+	{
+		
+		
+		
+
+		
+		
+	
+		return "redirect:/bookList";
+	}
+	
+	
+	@GetMapping("/bookList")
+	public String getBookList()
+	{
+		
+		return "book/bookList";
+	}
 	
 	
 	/* LOAN BOOK */ /* LOAN BOOK */ /* LOAN BOOK */ 
@@ -84,18 +138,25 @@ public class MainController {
 	@GetMapping("/book-register")
 	public String bookRegisterPage()
 	{
+		
 		return "book/book-register";
 	}
 	
 	
 	@PostMapping("/book-register")
-	public  String registerBook(@Valid Book book,BindingResult result)
+	public  String registerBook(@Valid Book book,BindingResult result,RedirectAttributes attributes)
 	{
 		
+		if(result.hasErrors())
+		{
+			
+			return "redirect:/book-register";
+		}
+			
+		bookService.createOrUpdateBook(book);
 		
 		
-		
-		return "redirect:/book-register";
+		return "redirect:/book-find-by-isbn?isbn="+book.getIsbn();
 	}
 	
 	

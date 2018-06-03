@@ -1,5 +1,6 @@
 package com.librarysystem.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -27,6 +28,9 @@ public class Member {
 		
 		@Column(name="phone",length  = 9,nullable = false)
 		private String phone;
+		
+		@Column(name="date_registered",nullable = false)
+		private Date dateRegistered;
 
 	
 		@OneToMany(mappedBy="member")

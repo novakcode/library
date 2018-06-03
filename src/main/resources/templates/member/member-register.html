@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
+<title>Member Register</title>
+<link rel="stylesheet" th:href="@{/css/book/register.css}"/>
+</head> 
 <body>
+	
+	
+	<button id="back" onclick="location.href = '/library-home'" >Home</button>
+	
+	
+	<h1>Register Member</h1>
+		<form th:action="@{/member-register}" th:object="${newMember}" method="POST">
+			<table>
+			<tr>
+			<td><label>Full Name</label>
+			<input type="text" name="full_name" required="required"/></td>
+			</tr>
+			<tr>
+			<td><label>Address</label>
+			<input type="text" name="address" required="required"/></td>
+			</tr>
+			<tr>
+			<td><label>Phone</label>
+			<input type="text" name="phone" required="required"/></td>
+			</tr>
+			<tr>
+			<td><button type="submit">Register</button></td>
+			</tr>
+			</table>
+		</form>
+		
+		<p id="message" th:if="${message} != null" th:text="${message}"></p>
+	
 
 </body>
 </html>
