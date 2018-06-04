@@ -1,57 +1,48 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 @import url(https://fonts.googleapis.com/css?family=Lato);
+
 @import url("../addons.css");
 
-body
-{
+body {
 	background-color: #333333;
-	font-family:"Roboto","sans-serif";
-	
-	text-align:center;
+	font-family: "Roboto", "sans-serif";
+	text-align: center;
 }
 
-
-h1{
-	font-family:Roboto;
-	color:white;
-	text-align:center;
-	margin-top:5%;
-	
+h1 {
+	font-family: Roboto;
+	color: white;
+	text-align: center;
+	margin-top: 5%;
 }
 
-.book
-{
-	
-	width:1000px;
-	height:400px;
-	margin-left:11%;
-
-	background-color:rgba(0,0,0,0.5);
+.book {
+	width: 1000px;
+	height: 400px;
+	margin-left: 11%;
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
-table{
-	margin-left:5%;
-	width:100%;
+table {
+	margin-left: 5%;
+	width: 100%;
 }
 
-
-input{
-	font-family:Lato;
-	font-size:20px;
-	color:white;
-	width:70%;
-	border:none;
-	margin-left:5%;
-	margin-top:5%;
-	padding-left:5px;
-	background-color:rgba(255,255,255,0.2);
+input {
+	font-family: Lato;
+	font-size: 20px;
+	color: white;
+	width: 70%;
+	border: none;
+	margin-left: 5%;
+	margin-top: 5%;
+	padding-left: 5px;
+	background-color: rgba(255, 255, 255, 0.2);
 }
 
-
-
-label{
-	color:White;
-	font-family:Lato;
-	font-size:20px;
+label {
+	color: White;
+	font-family: Lato;
+	font-size: 20px;
 }
-

@@ -1,47 +1,43 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" th:href="@{/css/book/loan.css}"/>
+<link rel="stylesheet" th:href="@{/css/book/loan.css}" />
 <title>Book Loan</title>
 </head>
 <body>
-	
+
 	<div class="container">
-	
-		<button id="back" onclick="location.href = '/library-home'" >Home</button>
-		
-		
-		
+
+		<button id="back" onclick="location.href = '/library-home'">Home</button>
+
+
+
 		<h1>Loan Book</h1>
-	<form th:action="@{/book-loan}" method="POST">
-		<table>
-			
-			<tr>
-				<td>
-					<label>Card Id</label>
-					<input type="text" name="card_Id" required="required">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<label>ISBN</label>
-					<input type="text" name="isbn" required="required">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<button type="submit">Loan</button>
-				</td>		
-			</tr>
-			
-			
-			
-			
-		</table>
-	</form>
-		
-		
+		<form th:action="@{/book-loan}" method="POST">
+			<table>
+
+				<tr>
+					<td><label>Card Id</label> <input type="text" name="card_Id"
+						required="required"></td>
+				</tr>
+
+				<tr>
+					<td><label>ISBN</label> <input type="text" name="isbn"
+						required="required"></td>
+				</tr>
+
+				<tr>
+					<td>
+						<button type="submit">Loan</button>
+					</td>
+				</tr>
+
+
+
+
+			</table>
+		</form>
+
+
 		<p id="message" th:if="${message} != null" th:text="${message}"></p>
 	</div>
 

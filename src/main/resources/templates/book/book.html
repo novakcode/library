@@ -1,41 +1,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Book</title>
-<link rel="stylesheet" th:href="@{/css/book/book.css}"/>
+<link rel="stylesheet" th:href="@{/css/book/book.css}" />
 </head>
 <body>
-	
-	<button id="back" onclick="javascript:history.back()" >Back</button>
-	
 
-		<h1 th:if="${book} != null">Book</h1>
-		<div th:if="${book} != null" class="book">
+	<button id="back" onclick="javascript:history.back()">Back</button>
+
+
+	<h1 th:if="${book} != null">Book</h1>
+	<div th:if="${book} != null" class="book">
 		<table>
-		<tr>
-			<td>
-				<label>ISBN :</label><input type="text" th:value="${book.isbn}" readonly="readonly">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label>Title :</label><input type="text" th:value="${book.title}" readonly="readonly">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label>Author :</label><input type="text" th:value="${book.author}" readonly="readonly">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label>Available : </label><input type="text" th:value="${book.available}" readonly="readonly">
-			</td>
-		</tr>
+			<tr>
+				<td><label>ISBN :</label><input type="text"
+					th:value="${book.isbn}" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td><label>Title :</label><input type="text"
+					th:value="${book.title}" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td><label>Author :</label><input type="text"
+					th:value="${book.author}" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td><label>Available : </label><input type="text"
+					th:value="${book.available}" readonly="readonly"></td>
+			</tr>
 		</table>
-		</div>
-	
-	
-	
+	</div>
+
+
+
 
 </body>
 </html>

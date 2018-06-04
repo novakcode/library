@@ -1,42 +1,43 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" th:href="@{/css/book/register.css}"/>
+<link rel="stylesheet" th:href="@{/css/book/register.css}" />
 <title>Book Register</title>
 </head>
 <body>
-	
-	<button id="back" onclick="location.href = '/library-home'" >Home</button>
-	
-	
-	
 
-		<h1>Register Book</h1>
-		<form th:action="@{/book-register}" th:object="${newBook}" method="POST">
-			<table>
+	<button id="back" onclick="location.href = '/library-home'">Home</button>
+
+
+
+
+	<h1>Register Book</h1>
+	<form th:action="@{/book-register}" th:object="${newBook}"
+		method="POST">
+		<table>
 			<tr>
-			<td><label>ISBN</label>
-			<input type="text" name="isbn" required="required"/></td>
+				<td><label>ISBN</label> <input type="text" name="isbn"
+					required="required" /></td>
 			</tr>
 			<tr>
-			<td><label>Title</label>
-			<input type="text" name="title" required="required"/></td>
+				<td><label>Title</label> <input type="text" name="title"
+					required="required" /></td>
 			</tr>
 			<tr>
-			<td><label>Author</label>
-			<input type="text" name="author" required="required"/></td>
+				<td><label>Author</label> <input type="text" name="author"
+					required="required" /></td>
 			</tr>
 			<tr>
-			<td><label>Available</label>
-			<input type="text" name="available" required="required"/></td>
+				<td><label>Available</label> <input type="text"
+					name="available" required="required" /></td>
 			</tr>
 			<tr>
-			<td><button type="submit">Register</button></td>
+				<td><button type="submit">Register</button></td>
 			</tr>
-			</table>
-		</form>
-		
-		<p id="message" th:if="${message} != null" th:text="${message}"></p>
-	
+		</table>
+	</form>
+
+	<p id="message" th:if="${message} != null" th:text="${message}"></p>
+
 
 </body>
 </html>

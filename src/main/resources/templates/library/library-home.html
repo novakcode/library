@@ -1,46 +1,53 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" th:href="@{/css/main/home-style.css}"/>
+<link rel="stylesheet" th:href="@{/css/main/home-style.css}" />
 <title>Library Management</title>
 </head>
 <body>
 
 	<div class="container" th:if="@{/user} != null">
-		
-			<form class="logout-form" th:action="@{/logout}" method="POST">
-			 <p  id="headline" th:inline="text">Welcome <strong>[[${#httpServletRequest.remoteUser}]]</strong>.</p>
-			 	<button>Logout</button>	
-				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />	
-			</form>		
-			
-			
+
+		<form class="logout-form" th:action="@{/logout}" method="POST">
+			<p id="headline" th:inline="text">
+				Welcome <strong>[[${#httpServletRequest.remoteUser}]]</strong>.
+			</p>
+			<button>Logout</button>
+			<input type="hidden" th:name="${_csrf.parameterName}"
+				th:value="${_csrf.token}" />
+		</form>
+
+
 		<div class="manage-container">
 			<div class="buttons">
-			<h1>Member</h1>
-			
-			<button onclick="location.href = '/member-register';">Register Member</button>
-			<button onclick="location.href = '/member-find';">Find Member</button>
-			<button onclick="location.href = '/member-renew';">Renew Member</button>
-	
-			
-			</div>	
-			
+				<h1>Member</h1>
+
+				<button onclick="location.href = '/member-register';">Register
+					Member</button>
+				<button onclick="location.href = '/member-find';">Find
+					Member</button>
+				<button onclick="location.href = '/member-renew';">Renew
+					Member</button>
+
+
+			</div>
+
 			<div class="buttons">
-			<h1>Book</h1>
-			<br/>
-			
-				<button onclick="location.href = '/book-register';">Register Book</button>
+				<h1>Book</h1>
+				<br />
+
+				<button onclick="location.href = '/book-register';">Register
+					Book</button>
 				<button onclick="location.href = '/book-find';">Find Book</button>
 				<button onclick="location.href = '/book-loan';">Loan Book</button>
-		
+
 			</div>
-				
-				
+
+
 		</div>
-			
+
 	</div>
-	
-	
+
+
 
 </body>
 </html>

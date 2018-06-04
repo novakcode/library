@@ -1,32 +1,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" th:href="@{/css/book/find.css}"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/book/find.css}" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/find.js"></script>
 <title>Find Book</title>
 </head>
 <body>
 
 
-		<button id="back" onclick="location.href = '/library-home'" >Home</button>
+	<button id="back" onclick="location.href = '/library-home'">Home</button>
 
-			<h1>Find Book</h1>
-			<form id="form" th:action="@{/book-find-by-isbn}" method="GET">
-			<br/>
-		
-				<label id="field">ISBN</label><input id="searchType" type="text" name="isbn"/>
-					<select  onchange="searchFieldChange(this)"  required="required">
-						<option value="isbn" >ISBN</option>
-						<option value="title">Title</option>
-						<option value="author">Author</option>
-					</select>
-					<br/>
-					<button type="submit">Search</button>
-			</form>
-			
-			<p id="message" th:if="${message} != null" th:text="${message}"></p>
-	
-		
+	<h1>Find Book</h1>
+	<form id="form" th:action="@{/book-find-by-isbn}" method="GET">
+		<br /> <label id="field">ISBN</label><input id="searchType"
+			type="text" name="isbn" /> <select onchange="searchFieldChange(this)"
+			required="required">
+			<option value="isbn">ISBN</option>
+			<option value="title">Title</option>
+			<option value="author">Author</option>
+		</select> <br />
+		<button type="submit">Search</button>
+	</form>
+
+	<p id="message" th:if="${message} != null" th:text="${message}"></p>
+
+
 
 
 

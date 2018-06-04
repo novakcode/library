@@ -1,37 +1,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Member Register</title>
-<link rel="stylesheet" th:href="@{/css/book/register.css}"/>
-</head> 
+<link rel="stylesheet" th:href="@{/css/book/register.css}" />
+</head>
 <body>
-	
-	
-	<button id="back" onclick="location.href = '/library-home'" >Home</button>
-	
-	
+
+
+	<button id="back" onclick="location.href = '/library-home'">Home</button>
+
+
 	<h1>Register Member</h1>
-		<form th:action="@{/member-register}" th:object="${newMember}" method="POST">
-			<table>
+	<form th:action="@{/member-register}" th:object="${newMember}"
+		method="POST">
+		<table>
 			<tr>
-			<td><label>Full Name</label>
-			<input type="text" name="full_name" required="required"/></td>
+				<td><label>Full Name</label> <input type="text"
+					name="full_name" required="required" /></td>
 			</tr>
 			<tr>
-			<td><label>Address</label>
-			<input type="text" name="address" required="required"/></td>
+				<td><label>Address</label> <input type="text" name="address"
+					required="required" /></td>
 			</tr>
 			<tr>
-			<td><label>Phone</label>
-			<input type="text" name="phone" required="required"/></td>
+				<td><label>Phone</label> <input type="text" name="phone"
+					required="required" /></td>
 			</tr>
 			<tr>
-			<td><button type="submit">Register</button></td>
+				<td><button type="submit">Register</button></td>
 			</tr>
-			</table>
-		</form>
-		
-		<p id="message" th:if="${message} != null" th:text="${message}"></p>
-	
+		</table>
+	</form>
+
+	<p id="message" th:if="${message} != null" th:text="${message}"></p>
+
 
 </body>
 </html>
