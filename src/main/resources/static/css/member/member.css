@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+@import url("../addons.css");
+
+body {
+	background-color: #333333;
+	font-family: "Roboto", "sans-serif";
+	text-align:center;
+}
+
+
+#h1M{
+	font-family: Roboto;
+	color: white;
+	text-align:left;
+	margin-left:27%;
+	margin-top: 5%;
+}
+
+.member {
+	float:left;
+	display:inline-block;
+	width: 700px;
+	height: 400px;
+	margin-top:2%;
+	margin-left: 5%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+table {
+	
+	margin-top:3%;
+	margin-left: 10%;
+	width: 100%;
+}
+
+input {
+	font-family: Lato;
+	font-size: 20px;
+	color: white;
+	width: 60%;
+	border: none;
+	margin-top: 5%;
+	padding-left: 5px;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+label {
+	display:inline-block;
+	width:105px;
+	color: White;
+	font-family: Lato;
+	font-size: 20px;
+}
+
+.loanedBooks{
+	margin-top:1%;
+	margin-right:8%;
+	float:right;
+	width:30%;
+	background-color: rgba(0, 0, 0, 0.5);
+	
+}
+
+ul{
+	margin-left:7%;
+	width:75%;
+	background-color: rgba(255, 255, 255, 0.2);
+	list-style-type: none;
+}
+
+ul li {
+	width:90%;
+	margin-right:0%;
+	font-size:18px;
+	font-family: Lato;
+	color:white;
+}
+
+
+#return {
+	padding: 5px 20px 5px 20px;
+	width: 50%;
+	border-radius: 10px;
+	font-family: Lato;
+	font-size: 20px;
+	border: none;
+	font-weight: bold;
+	margin-bottom:5%;
+	
+}
+
+#return:hover, #back:active, #back:focus {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+#h1LB{
+	display:compact;
+	font-family: Roboto;
+	color: white;
+	text-align:right;
+	margin-right:15%;
+	position: static;
+	
+}
+
+
+
+

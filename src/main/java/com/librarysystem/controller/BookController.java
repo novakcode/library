@@ -24,12 +24,13 @@ import com.librarysystem.service.LoanedBookService;
 import com.librarysystem.service.MemberService;
 
 
+
 @Controller
 public class BookController {
 	
 	
 	
-
+	// Constants for pagging
 	private static final int PAGE_SIZE = 5;
 	private static final int NAVIGATION_PAGE_SIZE = 5;
 	
@@ -52,7 +53,9 @@ public class BookController {
 		return "book/book-find";
 	}
 	
-	// Searching for book using Isbn
+	/*
+	 * Searching for book using Isbn
+	 */
 
 	@GetMapping("/find-book-by-isbn")
 	public String findBookByIsbn(@RequestParam("isbn") String isbn, Model model) {
@@ -61,6 +64,7 @@ public class BookController {
 		if (book == null) {
 			return "redirect:/book-find";
 		}
+		
 		model.addAttribute("book", book);
 
 		return "book/book";
@@ -68,7 +72,9 @@ public class BookController {
 	
 	
 	
-	// Searching for book using Author name.
+	/*
+	 * Searching for book using Author name.
+	 */
 
 	@GetMapping("/find-book-by-author")
 	public String findBookByAuthor(@RequestParam(name = "page", defaultValue = "1")Optional<Integer>page,
@@ -99,7 +105,9 @@ public class BookController {
 	
 	}
 	
-	//Searching for book using Title.
+	/*
+	 * Searching for book using Title.
+	 */
 
 	@GetMapping("/find-book-by-title")
 	public String findBookByTitle(@RequestParam(name="page",defaultValue = "1") Optional<Integer> page,
@@ -131,6 +139,9 @@ public class BookController {
 	}
 	
 	
+	/* 
+	 * Loans list of books(or a single book) to a member with card id.
+	 */
 	@PostMapping("/loan-book")
 	public String loanBook(@RequestParam("cardId") int cardId,@RequestParam List<String> isbn,Model model){
 		
@@ -143,7 +154,7 @@ public class BookController {
 			return "redirect:/book-loan";
 		}
 		
-		
+
 		
 		loanedBookService.loanBooks(isbn, member);
 		
@@ -162,6 +173,11 @@ public class BookController {
 		return "book/book-register";
 	}
 
+	
+	/*
+	 *	 Registers book.
+	 */
+	
 	@PostMapping("/register-book")
 	public String registerBook(@Valid @ModelAttribute("newBook") Book newBook, BindingResult result) {
 
@@ -175,4 +191,6 @@ public class BookController {
 		return "redirect:/find-book-by-isbn?isbn=" + newBook.getIsbn();
 	}
 		
+	
+
 }

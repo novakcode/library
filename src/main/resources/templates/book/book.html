@@ -32,6 +32,11 @@
 				<td><label>Section</label><input type="text"
 					th:value="${book.section}" readonly="readonly"></td>
 			</tr>
+			
+			<tr th:if="${book.available == false and book.loanedBook != null}">
+				<td><label>Card Id</label><input type="text"
+					th:value="${book.loanedBook.member.cardId}" readonly="readonly"></td>
+			</tr>
 		</table>
 	</div>
 

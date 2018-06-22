@@ -13,7 +13,6 @@ public interface MemberRepository extends JpaRepository<Member, Integer>, CrudRe
 		
 	
 		Member findMemberByCardId(int cardId);	
-		Page<Member> findMemberByFullNameContaining(String fullName,Pageable pageable);
 		
 		
 }

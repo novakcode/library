@@ -1,17 +1,13 @@
 package com.librarysystem.entity;
 
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 import com.librarysystem.validators.IsbnConstraint;
 
@@ -28,7 +24,7 @@ public class Book {
 		private String isbn;
 		
 		
-		@Pattern(regexp="[a-zA-Z0-9 ]+",message="Title must contain only letters and numbers.")
+		@Pattern(regexp="[a-zA-Z0-9 &-]+",message="Title must contain only letters and numbers.")
 		@Column(name="title",length = 120,nullable =false)
 		private String title;
 		
@@ -42,13 +38,13 @@ public class Book {
 		@Column(name="available",nullable = false)
 		private boolean available;
 		
-		@Pattern(regexp="[A-Z][0-9]{2}")
+		@Pattern(regexp="[A-Z][0-9]{2}",message = "Section not valid.")
 		@Column(name="section",nullable = false)
 		private String section;
 		
 		
-		@OneToMany(mappedBy="book" ,fetch = FetchType.LAZY,cascade=CascadeType.ALL)
-		private List<LoanedBook> loanedBooks;
+		@OneToOne(mappedBy="book" ,fetch = FetchType.LAZY,cascade=CascadeType.ALL)
+		private LoanedBook loanedBook;
 		
 		
 		
@@ -93,11 +89,21 @@ public class Book {
 		public void setSection(String section) {
 			this.section = section;
 		}
+		
+		
+
+		public LoanedBook getLoanedBook() {
+			return loanedBook;
+		}
+
+		public void setLoanedBook(LoanedBook loanedBook) {
+			this.loanedBook = loanedBook;
+		}
 
 		@Override
 		public String toString() {
 			return "Book [isbn=" + isbn + ", title=" + title + ", author=" + author + ", available=" + available
-					+ ", section=" + section + ", loanedBooks=" + loanedBooks + "]";
+					+ ", section=" + section;
 		}
 
 		

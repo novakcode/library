@@ -10,7 +10,6 @@ public interface MemberService {
 		
 		
 		Member findMemberByCardId(int cardId);
-		Page<Member> findMemberByFullName(String name,Pageable pageable);
 		void registerOrRenewMember(Member member);
 
 		

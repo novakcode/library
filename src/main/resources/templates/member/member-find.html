@@ -10,9 +10,9 @@
 
 
 	<h1>Find Member</h1>
-	<form th:action="@{/find-member}" method="POST">
-		<br /> <label id="field">Card Id</label><input type="number" min="1"
-			name="cardId" /> 
+	<form th:action="@{/find-member-by-card}" method="GET">
+		<br /> <label id="field">Card Id</label><input type="number" min="1" max="10000"
+			name="id" required="required" /> 
 		<button type="submit">Search</button>
 	</form>
 

@@ -20,11 +20,6 @@ public class MemberServiceImpl implements MemberService	{
 		return memberRepository.findMemberByCardId(cardId);
 	}
 	
-	@Override
-	public Page<Member> findMemberByFullName(String name,Pageable pageable) {
-		return memberRepository.findMemberByFullNameContaining(name,pageable);
-	}
-
 
 	@Override
 	public void registerOrRenewMember(Member member) {

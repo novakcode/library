@@ -10,5 +10,6 @@ public interface LoanedBookService {
 	List<LoanedBook> findLoanedBookByCardId(int cardId);
 
 	void loanBooks(List<String> booksToLoan, Member member);
+	void returnBooks(Member member);
 
 }

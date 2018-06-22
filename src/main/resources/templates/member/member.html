@@ -1,0 +1,68 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Member</title>
+<link rel="stylesheet" th:href="@{/css/member/member.css}" />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/remove.js"></script>
+</head>
+<body>
+
+	<button id="back" onclick="javascript:history.back()">Back</button>
+
+
+	<h1 id="h1M" th:if="${member} != null">Member</h1>
+	<div th:if="${member} != null" class="member">
+		<table>
+			<tr>
+				<td><label>Card Id</label><input type="text"
+					th:value="${member.cardId}" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td><label>Full Name</label><input type="text"
+					th:value="${member.fullName}" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td><label>Address</label><input type="text"
+					th:value="${member.address}" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td><label>Phone</label><input type="text"
+					th:value="${member.phone}" readonly="readonly"></td>
+			</tr>
+
+			<tr>
+				<td><label>Registered</label><input type="text"
+					th:value="${member.dateRegistered}" readonly="readonly"></td>
+			</tr>
+
+
+		</table>
+
+
+
+	</div>
+
+	<h1 id="h1LB" th:if="${!member.loanedBooks.empty}">Loaned Books</h1>
+	<div class="loanedBooks" th:if="${!member.loanedBooks.empty}">
+		<form th:action="@{/returnBooks}" method="POST">
+			<ul th:each="loanedBook : ${member.loanedBooks}">
+				<li th:inline="text">ISBN:[[${loanedBook.book.isbn}]]</li>
+				<li th:inline="text">Title:[[${loanedBook.book.title}]]</li>
+				<li th:inline="text">Due:[[${loanedBook.dateDue}]]</li>
+
+			</ul>
+
+			<input type="hidden" th:value="${member.cardId}" name="cardId"/>
+			<button type="submit" id="return">Return All</button>
+
+		</form>
+	</div>
+
+
+
+
+
+</body>
+</html>

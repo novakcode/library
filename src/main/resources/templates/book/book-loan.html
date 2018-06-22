@@ -1,6 +1,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <link rel="stylesheet" th:href="@{/css/book/loan.css}" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>Book Loan</title>
 </head>
 <body>
@@ -27,15 +29,15 @@
 
 				</tr>
 				<tr>
-					<td><label>1</label><input type="text" name="isbn"
+					<td><label>1</label><input  type="text" name="isbn"
 						required="required"></td>
 				</tr>
 				<tr>
-					<td><label>2</label><input type="text" name="isbn"
+					<td><label>2</label><input class="isbn" type="text" name="isbn"
 						readonly="readonly"></td>
 				</tr>
 				<tr>
-					<td><label>3</label><input type="text" name="isbn"
+					<td><label>3</label><input class="isbn"  type="text" name="isbn"
 						readonly="readonly"></td>
 				</tr>
 
@@ -59,7 +61,12 @@
 
 
 	<script>
-		
+		$(document).ready(function(){
+			$(":input").on("click",function(){
+				$(this).removeAttr("readonly");
+				$(this).prop("required",true);
+			});
+		});
 	</script>
 
 </body>

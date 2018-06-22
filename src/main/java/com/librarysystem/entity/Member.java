@@ -1,6 +1,6 @@
 package com.librarysystem.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name="Members")
@@ -21,17 +22,19 @@ public class Member {
 		@Column(name="card_Id",nullable = false)
 		private int cardId;
 		
+		@Pattern(regexp="[a-zA-Z ]+",message="Name should only contain letters.")
 		@Column(name="full_name",nullable = false,length = 40)
 		private String fullName;
 		
 		@Column(name="address",length = 80,nullable = false)
 		private String address;
 		
+		@Pattern(regexp="[0-9]+",message="Phone not valid.")
 		@Column(name="phone",length  = 9,nullable = false)
 		private String phone;
 		
 		@Column(name="date_registered",nullable = false)
-		private Date dateRegistered;
+		private LocalDate dateRegistered;
 
 	
 		@OneToMany(mappedBy="member")
@@ -77,6 +80,15 @@ public class Member {
 		public void setLoanedBooks(List<LoanedBook> loanedBooks) {
 			this.loanedBooks = loanedBooks;
 		}
+
+		public LocalDate getDateRegistered() {
+			return dateRegistered;
+		}
+
+		public void setDateRegistered(LocalDate dateRegistered) {
+			this.dateRegistered = dateRegistered;
+		}
+		
 		
 		
 		
