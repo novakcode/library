@@ -11,7 +11,7 @@
 
 
 	<h1>Register Book</h1>
-	<form th:action="@{/book-register}" th:object="${newBook}"
+	<form th:action="@{/register-book}" th:object="${newBook}"
 		method="POST">
 		<table>
 			<tr>
@@ -30,6 +30,12 @@
 				<td><label>Available</label> <input type="text"
 					name="available" required="required" /></td>
 			</tr>
+			
+			<tr>
+				<td><label>Section</label> <input type="text"
+					name="section" required="required" /></td>
+			</tr>
+			
 			<tr>
 				<td><button type="submit">Register</button></td>
 			</tr>

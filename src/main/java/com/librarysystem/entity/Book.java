@@ -42,6 +42,10 @@ public class Book {
 		@Column(name="available",nullable = false)
 		private boolean available;
 		
+		@Pattern(regexp="[A-Z][0-9]{2}")
+		@Column(name="section",nullable = false)
+		private String section;
+		
 		
 		@OneToMany(mappedBy="book" ,fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 		private List<LoanedBook> loanedBooks;
@@ -79,8 +83,27 @@ public class Book {
 		public void setAvailable(boolean available) {
 			this.available = available;
 		}
+		
+		
+
+		public String getSection() {
+			return section;
+		}
+
+		public void setSection(String section) {
+			this.section = section;
+		}
+
+		@Override
+		public String toString() {
+			return "Book [isbn=" + isbn + ", title=" + title + ", author=" + author + ", available=" + available
+					+ ", section=" + section + ", loanedBooks=" + loanedBooks + "]";
+		}
+
+		
 	
 	
+		
 		
 	
 	

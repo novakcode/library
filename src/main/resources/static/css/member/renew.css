@@ -1,0 +1,61 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+@import url("../addons.css");
+
+body {
+	background-color: #333333;
+	font-family: "Roboto", "sans-serif";
+	text-align: center;
+}
+
+h1 {
+	font-family: Roboto;
+	color: white;
+	text-align: center;
+	margin-top: 5%;
+}
+
+label {
+	color: white;
+	font-size: 25px;
+	font-family: Roboto;
+}
+
+input {
+	margin: 10px;
+	border: none;
+	height: 25%;
+	width: 70%;
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 5px;
+	color: black;
+	font-weight: 700;
+	font-size: 20px;
+}
+
+
+form {
+	padding-top: 3%;
+	background-color: rgba(0, 0, 0, 0.2);
+	width: 50%;
+	height: 20%;
+	margin-left: 25%;
+}
+
+form button {
+	height: 25%;
+	font-family: Lato;
+	width: 35%;
+	font-size: 20px;
+	margin-left: 47%;
+	background-color: rgba(255, 255, 255, 0.9);
+	border: none;
+}
+
+form button:hover, form button:active, form button:focus {
+	opacity: 0.5;
+	border-radius: 5px;
+	cursor: pointer;
+}

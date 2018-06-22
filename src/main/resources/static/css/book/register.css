@@ -21,6 +21,8 @@ table {
 }
 
 table label {
+	display:inline-block;
+	width:15%;
 	color: white;
 	font-family: "Roboto";
 	font-weight: 600;

@@ -12,9 +12,9 @@
 	<button id="back" onclick="location.href = '/library-home'">Home</button>
 
 	<h1>Find Book</h1>
-	<form id="form" th:action="@{/book-find-by-isbn}" method="GET">
+	<form id="form" th:action="@{/find-book-by-isbn}" method="GET">
 		<br /> <label id="field">ISBN</label><input id="searchType"
-			type="text" name="isbn" /> <select onchange="searchFieldChange(this)"
+			type="text" name="isbn" required/> <select onchange="searchFieldChange(this)"
 			required="required">
 			<option value="isbn">ISBN</option>
 			<option value="title">Title</option>

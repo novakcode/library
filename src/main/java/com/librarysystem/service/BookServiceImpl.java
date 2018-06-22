@@ -30,7 +30,7 @@ public class BookServiceImpl implements BookService{
 
 	@Override
 	public Page<Book> findBookByAuthor(String author, Pageable pageable) {
-		return bookRepository.findBookByAuthor(author, pageable);
+		return bookRepository.findBookByAuthorContaining(author, pageable);
 	}
 
 

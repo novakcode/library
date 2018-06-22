@@ -1,9 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" th:href="@{/css/book/find.css}" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/find.js"></script>
+<link rel="stylesheet" th:href="@{/css/member/find.css}" />
 <title>Member Find</title>
 </head>
 <body>
@@ -13,14 +10,9 @@
 
 
 	<h1>Find Member</h1>
-	<form th:action="@{/member-find}" method="POST">
-		<br /> <label id="field">Type</label><input type="text"
-			name="searchField" /> <select name="searchType"
-			onchange="searchFieldChange(this)" required>
-			<option selected disabled>By</option>
-			<option value="card">Card</option>
-			<option value="name">Name</option>
-		</select> <br />
+	<form th:action="@{/find-member}" method="POST">
+		<br /> <label id="field">Card Id</label><input type="number" min="1"
+			name="cardId" /> 
 		<button type="submit">Search</button>
 	</form>
 

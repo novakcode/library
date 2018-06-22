@@ -1,79 +1,88 @@
 package com.librarysystem.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Loaned_Books")
+@Table(name = "Loaned_Books")
 public class LoanedBook {
-		
-		@Id
-		@GeneratedValue
-		@Column(name="loan_Id",nullable = false)
-		private int loanId;
-		
-		@Column(name="date_out",nullable  = false)
-		private Date dateOut;
 
-		@Column(name="date_due",nullable = false)
-		private Date dateDue;
-		
-		@ManyToOne
-		@JoinColumn(name="isbn")
-		private Book book;
-		
-		@ManyToOne
-		@JoinColumn(name="card_Id")
-		private Member member;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "loan_Id", nullable = false)
+	private int loanId;
 
-		public int getLoanId() {
-			return loanId;
-		}
+	@Column(name = "date_out", nullable = false)
+	private LocalDate dateOut;
 
-		public void setLoanId(int loanId) {
-			this.loanId = loanId;
-		}
+	@Column(name = "date_due", nullable = false)
+	private LocalDate dateDue;
 
-		public Date getDateOut() {
-			return dateOut;
-		}
+	@ManyToOne
+	@JoinColumn(name = "isbn")
+	private Book book;
 
-		public void setDateOut(Date dateOut) {
-			this.dateOut = dateOut;
-		}
+	@ManyToOne
+	@JoinColumn(name = "card_Id")
+	private Member member;
+	
+	
+	public LoanedBook(){}
+	
+	public LoanedBook(Member member,Book book,LocalDate dateOut,LocalDate dateDue){
+		this.member = member;
+		this.book = book;
+		this.dateOut = dateOut;
+		this.dateDue = dateDue;
+	}
+	
 
+	public int getLoanId() {
+		return loanId;
+	}
 
-		public Date getDateDue() {
-			return dateDue;
-		}
+	public void setLoanId(int loanId) {
+		this.loanId = loanId;
+	}
 
-		public void setDateDue(Date dateDue) {
-			this.dateDue = dateDue;
-		}
+	public LocalDate getDateOut() {
+		return dateOut;
+	}
 
-		public Book getBook() {
-			return book;
-		}
+	public void setDateOut(LocalDate dateOut) {
+		this.dateOut = dateOut;
+	}
 
-		public void setBook(Book book) {
-			this.book = book;
-		}
+	public LocalDate getDateDue() {
+		return dateDue;
+	}
 
-		public Member getMember() {
-			return member;
-		}
+	public void setDateDue(LocalDate dateDue) {
+		this.dateDue = dateDue;
+	}
 
-		public void setMember(Member member) {
-			this.member = member;
-		}
+	public Book getBook() {
+		return book;
+	}
 
-		
-		
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
 }

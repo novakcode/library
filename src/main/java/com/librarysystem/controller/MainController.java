@@ -23,17 +23,6 @@ import com.librarysystem.service.MemberService;
 @Controller
 public class MainController {
 
-	@Autowired
-	private MemberService memberService;
-
-	@Autowired
-	private BookService bookService;
-
-	@Autowired
-	private LoanedBookService loanedBookService;
-
-	private static final int PAGE_SIZE = 5;
-	private static final int NAVIGATION_PAGE_SIZE = 5;
 
 	/* LIBRARY HOME AND LOGIN PAGE MAPPING */
 	@GetMapping({ "/", "/library-home" })
@@ -48,97 +37,6 @@ public class MainController {
 		return "library/library-login";
 	}
 
-	// Book pages mapping
-
-	/* FIND BOOK */ /* FIND BOOK */ /* FIND BOOK */
-
-	@GetMapping("/book-find")
-	public String bookFindPage() {
-
-		return "book/book-find";
-	}
-
-	@GetMapping("/book-find-by-isbn")
-	public String findBookByIsbn(@RequestParam("isbn") String isbn, Model model) {
-
-		Book book = bookService.findBookByIsbn(isbn);
-		if (book == null) {
-			return "redirect:/book-find";
-		}
-		model.addAttribute("book", book);
-
-		return "book/book";
-	}
-
-	@GetMapping("/book-find-by-author")
-	public String findBookByAuthor(@RequestParam(name = "page", defaultValue = "1") Optional<Integer> page,
-			@RequestParam("author") String author, Model model) {
-
-		if (!author.isEmpty()) {
-			int currentPage = page.get() - 1 < 0 ? 0 : page.get() - 1;
-			Page<Book> bookList = bookService.findBookByAuthor(author, PageRequest.of(currentPage, PAGE_SIZE));
-
-			model.addAttribute("books", bookList.getContent());
-
-		}
-
-		return "book/bookList";
-	}
-
-	@GetMapping("/book-find-by-title")
-	public String findBookByTitle(@RequestParam("page") Optional<Integer> page, @RequestParam("title") String title,
-			Model model) {
-
-		return "book/bookList";
-	}
-
-	/* LOAN BOOK */ /* LOAN BOOK */ /* LOAN BOOK */
-
-	@GetMapping("/book-loan")
-	public String bookLoanPage() {
-		return "book/book-loan";
-	}
-
-	/* REGISTER BOOK */ /* REGISTER BOOK */ /* REGISTER BOOK */
-
-	@GetMapping("/book-register")
-	public String bookRegisterPage() {
-
-		return "book/book-register";
-	}
-
-	@PostMapping("/book-register")
-	public String registerBook(@Valid Book book, BindingResult result, RedirectAttributes attributes) {
-
-		if (result.hasErrors()) {
-
-			return "redirect:/book-register";
-		}
-
-		bookService.createOrUpdateBook(book);
-
-		return "redirect:/book-find-by-isbn?isbn=" + book.getIsbn();
-	}
-
-	// Member mapping
-
-	/* FIND MEMBER */ /* FIND MEMBER */ /* FIND MEMBER */
-
-	@GetMapping("/member-find")
-	public String memberFindPage() {
-		return "member/member-find";
-	}
-
-	/* REGISTER MEMBER */ /* REGISTER MEMBER */ /* REGISTER MEMBER */
-	@GetMapping("/member-register")
-	public String memberRegisterPage() {
-		return "member/member-register";
-	}
-
-	/* RENEW MEMBER */ /* RENEW MEMBER */ /* RENEW MEMBER */
-	@GetMapping("/member-renew")
-	public String memberRenewPage() {
-		return "member/member-renew";
-	}
+	
 
 }

@@ -10,29 +10,26 @@ body {
 	text-align: center;
 }
 
-container {
-	margin: 0;
-	padding: 0;
-}
-form{
-	height:auto;
-}
-
 table {
-
-	margin-left: 34%;
+	margin-top: 0%;
+	margin-left: 30%;
 	background-color: rgba(255, 255, 255, 0.1);
 	border-radius: 5px;
-	width: 400px;
-	height: 35%;
+	width: 500px;
+	table-layout:fixed;
+	border:1px;
+	height: 350px;
 	text-align: center;
 }
 
 table label {
+	display:inline-block;
+	width:15%;
 	color: white;
+	text-align:right;
 	font-family: "Roboto";
 	font-weight: 600;
-	margin-right: 2%;
+	margin-right:10%;
 	
 }
 
@@ -41,7 +38,7 @@ table button {
 	padding: 7px 4px 7px 4px;
 	border: none;
 	color: white;
-	width: 70%;
+	width: 60%;
 	font-size: 23px;
 	font-family: "Lato";
 }
@@ -50,15 +47,14 @@ table input {
 	color: white;
 	background-color: rgba(255, 255, 255, 0.2);
 	border: none;
-	height: 50%;
-	width: 70%;
+	height: 35%;
+	width: 60%;
 	font-family: Roboto;
 	font-weight: bold;
 	font-size: 15px;
-	
 }
 
-	
+
 h1 {
 	font-family: Roboto;
 	color: white;

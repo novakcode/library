@@ -13,6 +13,6 @@ public interface BookRepository extends JpaRepository<Book,String>,CrudRepositor
 		
 		Book findBookByIsbn(String isbn);
 		Page<Book> findBookByTitleContaining(String title,Pageable pageable);
-		Page<Book> findBookByAuthor(String author,Pageable pageable);
+		Page<Book> findBookByAuthorContaining(String author,Pageable pageable);
 	
 }

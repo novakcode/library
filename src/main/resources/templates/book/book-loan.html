@@ -11,18 +11,32 @@
 
 
 
-		<h1>Loan Book</h1>
-		<form th:action="@{/book-loan}" method="POST">
+		<h1>Loan Books</h1>
+		<form th:action="@{/loan-book}" method="POST">
 			<table>
 
 				<tr>
-					<td><label>Card Id</label> <input type="text" name="card_Id"
+					<td><label>Card Id</label> <input type="text" name="cardId"
 						required="required"></td>
+
 				</tr>
 
 				<tr>
-					<td><label>ISBN</label> <input type="text" name="isbn"
+					<td><label>ISBN</label></td>
+
+
+				</tr>
+				<tr>
+					<td><label>1</label><input type="text" name="isbn"
 						required="required"></td>
+				</tr>
+				<tr>
+					<td><label>2</label><input type="text" name="isbn"
+						readonly="readonly"></td>
+				</tr>
+				<tr>
+					<td><label>3</label><input type="text" name="isbn"
+						readonly="readonly"></td>
 				</tr>
 
 				<tr>
@@ -35,12 +49,18 @@
 
 
 			</table>
+
+
 		</form>
 
 
 		<p id="message" th:if="${message} != null" th:text="${message}"></p>
 	</div>
 
+
+	<script>
+		
+	</script>
 
 </body>
 </html>

@@ -1,11 +1,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<script>
+	
+</script>
 <title>Book List</title>
 <link rel="stylesheet" th:href="@{/css/bookList.css}" />
 </head>
 <body>
 
 
+Book List:
+		
+		<div th:each="book : ${books}">
+			[[${book.title}]]<br/>
+		
+		</div>
+
+		<div th:each="page : ${pages}">
+		
+			<a th:href="@{'/book-find-by-'${by}'+?page=' + ${page}}" th:text="${page}"></a>
+		</div>
+	
 
 </body>
 </html>

@@ -12,20 +12,25 @@
 	<div th:if="${book} != null" class="book">
 		<table>
 			<tr>
-				<td><label>ISBN :</label><input type="text"
+				<td><label>ISBN</label><input type="text"
 					th:value="${book.isbn}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td><label>Title :</label><input type="text"
+				<td><label>Title</label><input type="text"
 					th:value="${book.title}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td><label>Author :</label><input type="text"
+				<td><label>Author</label><input type="text"
 					th:value="${book.author}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td><label>Available : </label><input type="text"
+				<td><label>Available</label><input type="text"
 					th:value="${book.available}" readonly="readonly"></td>
+			</tr>
+
+			<tr>
+				<td><label>Section</label><input type="text"
+					th:value="${book.section}" readonly="readonly"></td>
 			</tr>
 		</table>
 	</div>

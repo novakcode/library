@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Member Register</title>
-<link rel="stylesheet" th:href="@{/css/book/register.css}" />
+<link rel="stylesheet" th:href="@{/css/member/register.css}" />
 </head>
 <body>
 
@@ -10,7 +10,7 @@
 
 
 	<h1>Register Member</h1>
-	<form th:action="@{/member-register}" th:object="${newMember}"
+	<form th:action="@{/register-member}" th:object="${newMember}"
 		method="POST">
 		<table>
 			<tr>
@@ -25,6 +25,7 @@
 				<td><label>Phone</label> <input type="text" name="phone"
 					required="required" /></td>
 			</tr>
+
 			<tr>
 				<td><button type="submit">Register</button></td>
 			</tr>
