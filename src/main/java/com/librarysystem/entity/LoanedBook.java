@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.util.Assert;
+
 @Entity
 @Table(name = "Loaned_Books")
 public class LoanedBook {
@@ -39,6 +41,10 @@ public class LoanedBook {
 	public LoanedBook(){}
 	
 	public LoanedBook(Member member,Book book,LocalDate dateOut,LocalDate dateDue){
+		
+		Assert.notNull(member,"Member should not be null.");
+		Assert.notNull(book,"Book should not be null.");
+		
 		this.member = member;
 		this.book = book;
 		this.dateOut = dateOut;

@@ -4,23 +4,26 @@
 	
 </script>
 <title>Book List</title>
-<link rel="stylesheet" th:href="@{/css/bookList.css}" />
+<link rel="stylesheet" th:href="@{/css/book/bookList.css}" />
 </head>
 <body>
 
+	<button id="back" onclick="location.href = '/library-home'">Home</button>
 
-Book List:
-		
-		<div th:each="book : ${books}">
-			[[${book.title}]]<br/>
-		
-		</div>
 
-		<div th:each="page : ${pages}">
-		
-			<a th:href="@{'/book-find-by-'${by}'+?page=' + ${page}}" th:text="${page}"></a>
+	<h1>Book List</h1>
+	<div class="books">
+		<ul th:each="book : ${books}">
+			<li><a th:href="@{'/find-book-by-isbn?isbn='+${book.isbn}}">ISBN:[[${book.isbn}]]</a></li>
+			<li>Title: [[${book.title}]]</li>
+			<li>Author: [[${book.author}]]</li>
+		</ul>
+
+		<div id="pages" th:each="page : ${pages}">
+			
+			<a id="page" th:href="@{${#httpServletRequest.requestURI}(page=${page},title=${field})}" th:text="${page}"></a>
 		</div>
-	
+	</div>
 
 </body>
 </html>

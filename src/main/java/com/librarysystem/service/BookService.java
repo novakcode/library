@@ -10,5 +10,5 @@ public interface BookService {
 		Book findBookByIsbn(String isbn);
 		Page<Book> findBookByTitle(String title,Pageable pageable);
 		Page<Book> findBookByAuthor(String author,Pageable pageable);
-		void createOrUpdateBook(Book book);
+		Book createOrUpdateBook(Book book);
 }

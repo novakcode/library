@@ -40,6 +40,24 @@ public class Member {
 		@OneToMany(mappedBy="member")
 		private List<LoanedBook> loanedBooks;
 		
+		public Member(){}
+		
+		
+		
+
+		public Member(int cardId,String fullName,
+				String address,String phone,
+				LocalDate dateRegistered) {
+	
+			this.cardId = cardId;
+			this.fullName = fullName;
+			this.address = address;
+			this.phone = phone;
+			this.dateRegistered = dateRegistered;
+		}
+
+
+
 
 		public int getCardId() {
 			return cardId;
@@ -87,6 +105,15 @@ public class Member {
 
 		public void setDateRegistered(LocalDate dateRegistered) {
 			this.dateRegistered = dateRegistered;
+		}
+
+
+
+
+		@Override
+		public String toString() {
+			return "Member [cardId=" + cardId + ", fullName=" + fullName + ", address=" + address + ", phone=" + phone
+					+ ", dateRegistered=" + dateRegistered  + "]";
 		}
 		
 		

@@ -89,6 +89,7 @@ public class BookController {
 				
 				Pager pager = new Pager(NAVIGATION_PAGE_SIZE,page.get(),bookList.getTotalPages());
 				
+				model.addAttribute("field", author);
 				model.addAttribute("books",bookList.getContent());
 				model.addAttribute("pages", pager.getNavigationPages());
 				
@@ -122,6 +123,7 @@ public class BookController {
 		{
 			Pager pager = new Pager(NAVIGATION_PAGE_SIZE,page.get(),bookList.getTotalPages());
 			
+			model.addAttribute("field", title);
 			model.addAttribute("books", bookList.getContent());
 			model.addAttribute("pages",pager.getNavigationPages());
 			return "book/bookList";

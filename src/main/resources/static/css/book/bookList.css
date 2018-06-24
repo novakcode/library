@@ -1,0 +1,59 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+@import url("../addons.css");
+
+body {
+	background-color: #333333;
+	font-family: "Roboto", "sans-serif";
+	text-align: center;
+}
+
+
+h1 {
+	font-family: Roboto;
+	color: white;
+	text-align: center;
+	margin-top: 5%;
+}
+
+.books{
+	margin-left:29%;
+	background-color: rgba(0, 0, 0, 0.2);
+	width:40%;
+
+	padding-top:2%;
+	
+}
+
+ul{
+	margin-left:5%;
+	width:80%;
+	list-style-type: none;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+ul li{
+	font-size:20px;
+	font-family:Lato;
+	color:white;
+}
+
+ul li a{
+	
+	text-decoration:none;
+	color:white;
+	opacity:0.7;
+}
+
+#pages{
+	display:inline-block;
+}
+#page{
+	opacity:0.6;
+	font-size:25px;
+	text-decoration:none;
+	font-family:Roboto;
+	color:White;
+}
