@@ -49,31 +49,23 @@ public class LoanedBookServiceImpl implements LoanedBookService {
 	@Override
 	public void loanBooks(List<String> isbnToLoan, Member member) {
 
-		List<Book> booksToLoan = new ArrayList<Book>();
 		logger.info("Getting books from repository...");
+
+		LocalDate dateOut = LocalDate.now();
+		LocalDate dateDue = dateOut.plusMonths(1);
+		
 		isbnToLoan.stream().forEach(isbn -> {
 			Book book = bookRepository.findBookByIsbn(isbn);
 			
 			if (book != null && book.isAvailable()) {
 				logger.debug("Book:{}", book);
-				booksToLoan.add(book);
 				book.setAvailable(false);
 				bookRepository.save(book);
+				loanedBookRepository.save(new LoanedBook(member, book, dateOut, dateDue));
+				
 			}
 		});
 		
-		
-
-		LocalDate dateOut = LocalDate.now();
-		LocalDate dateDue = dateOut.plusMonths(1);
-
-		booksToLoan.stream().forEach(book -> {
-
-			LoanedBook loanedBook = new LoanedBook(member, book, dateOut, dateDue);
-			logger.debug("Loaned Book:{}", loanedBook);
-			loanedBookRepository.save(loanedBook);
-
-		});
 	}
 
 	/**
