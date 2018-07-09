@@ -1,7 +1,6 @@
 package com.librarysystem.service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -16,10 +15,7 @@ import com.librarysystem.entity.Member;
 import com.librarysystem.repository.BookRepository;
 import com.librarysystem.repository.LoanedBookRepository;
 
-/*
- * Used for interaction with Loaned_Books table.
- * 
- */
+
 
 @Service("loanedBookService")
 public class LoanedBookServiceImpl implements LoanedBookService {
@@ -41,7 +37,7 @@ public class LoanedBookServiceImpl implements LoanedBookService {
 
 	/**
 	 * 
-	 * This method finds every that is gonna be loaned by isbn. Then creates and
+	 * This method finds every book that is gonna be loaned by isbn. Then creates and
 	 * persists books to LoanedBook table.
 	 * 
 	 * 
@@ -59,8 +55,6 @@ public class LoanedBookServiceImpl implements LoanedBookService {
 			
 			if (book != null && book.isAvailable()) {
 				logger.debug("Book:{}", book);
-				book.setAvailable(false);
-				bookRepository.save(book);
 				loanedBookRepository.save(new LoanedBook(member, book, dateOut, dateDue));
 				
 			}
@@ -71,9 +65,7 @@ public class LoanedBookServiceImpl implements LoanedBookService {
 	/**
 	 * Returns every book assigned to certain member.
 	 * 
-	 * Deletes every row where member cardId = certain cardId. Also updates
-	 * every row in Book table by setting available = true(since book is now
-	 * free to loan after being returned).
+	 * Deletes every row where member cardId = certain cardId
 	 * 
 	 **/
 
@@ -83,14 +75,6 @@ public class LoanedBookServiceImpl implements LoanedBookService {
 		logger.debug("Returning books for cardId:{}", member.getCardId());
 
 		logger.info("Setting book available field to true...");
-
-		List<LoanedBook> loanedBooks = member.getLoanedBooks();
-
-		loanedBooks.stream().forEach(lb -> {
-			Book book = lb.getBook();
-			book.setAvailable(true);
-			bookRepository.save(book);
-		});
 
 		logger.info("Deleting loaned books...");
 		loanedBookRepository.deleteLoanedBookByMember_CardId(member);

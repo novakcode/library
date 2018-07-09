@@ -57,6 +57,7 @@ public class BookServiceImplTests {
 		Book mockBook = new Book(ISBN, TITLE, AUTHOR, true, SECTION);
 		Page<Book> books = Page.empty(PageRequest.of(PAGE, PAGE_SIZE));
 
+
 		when(bookRepository.findBookByIsbn(ISBN)).thenReturn(mockBook);
 		when(bookRepository.save(any(Book.class))).thenReturn(mockBook);
 		when(bookRepository.findBookByTitleContaining(any(String.class), any(Pageable.class))).thenReturn(books);
