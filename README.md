@@ -1,6 +1,15 @@
 **Spring Boot + JPA + Thymeleaf + Pagination.**<br/><br/>
-Example of a library menagement system made in Java. Its in a form of a web application.You can register,loan and find Books.<br/>
-Also,register and find Members and renew their membership.
+Example of a Library management system made in Java..<br/>
+## <h2>You can:</h2>
+Find Books by ISBN,title or author. Register or loan Books<br/>
+Register, find Members and return books they loaned. Or renew their membership.
+
+## <h2>How to run</h2>
+Execute `tables.sql` <br/>
+Clone or download project. Run `mvn install`  in root directory.<br/>
+Run `java -jar target/library-0.0.1-SNAPSHOT.jar` 
+
+Go to http://localhost:8080/ in your browser
 
 
 
