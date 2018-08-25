@@ -28,11 +28,8 @@ import com.librarysystem.repository.MemberRepository;
 public class MemberServiceImplTests {
 	
 
-	private static final int CARD_ID = 1;
-	private static final String FULL_NAME = "Novak Saljic";
-	private static final String ADDRESS = "Adresa";
-	private static final String PHONE = "0600412";
-	private static final LocalDate DATE_REGISTERED = LocalDate.now();
+	
+	private Member member = new Member(1,"Example Name","Adress","06024");
 
 	@TestConfiguration
 	static class MemberServiceImplTestContextConfiguration{
@@ -53,11 +50,12 @@ public class MemberServiceImplTests {
 	@Before
 	public void setUp(){
 		
-		Member mockMember = new Member(CARD_ID,FULL_NAME,ADDRESS,PHONE,DATE_REGISTERED);
-		Member updatedMember  = new Member(CARD_ID,FULL_NAME,ADDRESS,PHONE,LocalDate.now().plusMonths(1));
 		
-		when(memberRepository.findMemberByCardId(CARD_ID)).thenReturn(mockMember);
-		when(memberRepository.save(any(Member.class))).thenReturn(mockMember);
+		Member updatedMember  = member;
+		updatedMember.setDateRegistered(LocalDate.now().plusMonths(1));
+		
+		when(memberRepository.findMemberByCardId(member.getCardId())).thenReturn(member);
+		when(memberRepository.save(any(Member.class))).thenReturn(member);
 		when(memberRepository.save(any(Member.class))).thenReturn(updatedMember);
 		
 		
@@ -65,11 +63,11 @@ public class MemberServiceImplTests {
 	
 	@Test
 	public void whenFindByCardIdReturnMember(){
-		Member member = new Member(CARD_ID,FULL_NAME,ADDRESS,PHONE,DATE_REGISTERED);
+
 		
-		Member foundMember = memberService.findMemberByCardId(CARD_ID);
+		Member foundMember = memberService.findMemberByCardId(member.getCardId());
 		
-		verify(memberRepository,times(1)).findMemberByCardId(CARD_ID);
+		verify(memberRepository,times(1)).findMemberByCardId(member.getCardId());
 		verifyNoMoreInteractions(memberRepository);
 		
 		assertThat(member.getCardId(),equalTo(foundMember.getCardId()));
@@ -77,7 +75,6 @@ public class MemberServiceImplTests {
 	
 	@Test
 	public void registeringMemberShouldReturnNewMember(){
-		Member member = new Member(CARD_ID,FULL_NAME,ADDRESS,PHONE,DATE_REGISTERED);
 		
 		Member createdMember = memberService.registerOrRenewMember(member);
 		
@@ -89,7 +86,8 @@ public class MemberServiceImplTests {
 	
 	@Test
 	public void renewMemberShouldReturnRenewedMember(){
-		Member updatedMember = new Member(CARD_ID,FULL_NAME,ADDRESS,PHONE,DATE_REGISTERED.plusMonths(1));
+		Member updatedMember = member;
+		updatedMember.setDateRegistered(LocalDate.now().plusMonths(1));
 		
 		Member createdMember = memberService.registerOrRenewMember(updatedMember);
 		

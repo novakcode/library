@@ -42,11 +42,11 @@ INSERT INTO Library_Accounts(username,password)VALUES
 ('novak','$2a$10$JJi5EOUNHyth7ntg4U.IRec0.1n/.9f3imHz25StR/81iG6EcJohy');
 
 INSERT INTO Members(card_Id,full_name,address,phone,date_registered)VALUES
-(1,'Novak Saljic','Bulevar Djindjica 24','604444272','2018-06-22'),
-(2,'Gojko Puska','Milosa Krajice 5','694521114','2017-02-09'),
-(3,'Kojot Paric','Kovaceviceva 96','652335991','2018-06-22'),
-(4,'Pavle Garas','Kraljeva 18','621112956','2017-12-02'),
-(5,'Marko Skljaric','Pajkiceva Budza 1','652335991','2017-10-12');
+(1,'Example Name','Bulevar Djindjica','604444272','2018-06-22'),
+(2,'Thomas Vinsent','Milosa Krajice','694521114','2017-02-09'),
+(3,'Kojot Something','Kovaceviceva','652335991','2018-06-22'),
+(4,'Loser Lose','Kraljeva 18','621112956','2017-12-02'),
+(5,'Marko Kraljevic','Ulica Nebitna 1','652335991','2017-10-12');
 
 INSERT INTO Books(isbn,title,author,available)VALUES
 ('414-5-215156-56-1','Good Bad Ugly',"Example Author",true,'A05'),

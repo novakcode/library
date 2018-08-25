@@ -44,7 +44,6 @@ public class LoanedBook {
 		
 		Assert.notNull(member,"Member should not be null.");
 		Assert.notNull(book,"Book should not be null.");
-		
 		this.member = member;
 		this.book = book;
 		this.dateOut = dateOut;

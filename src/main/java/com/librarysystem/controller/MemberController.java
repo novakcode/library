@@ -1,8 +1,5 @@
 package com.librarysystem.controller;
 
-import java.time.LocalDate;
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.librarysystem.entity.Member;
 import com.librarysystem.service.LoanedBookService;
@@ -63,12 +59,11 @@ public class MemberController {
 	@PostMapping("/register-member")
 	public String registerMember(@Valid @ModelAttribute("newMember") Member newMember, BindingResult result) {
 
-		if (result.hasErrors()) {
+		if (newMember != null && result.hasErrors()) {
 			
 			return "redirect:/member-register";
 		}
 		
-		newMember.setDateRegistered(LocalDate.now());
 		memberService.registerOrRenewMember(newMember);
 
 		return "redirect:/find-member-by-card?id=" + newMember.getCardId();
@@ -90,13 +85,8 @@ public class MemberController {
 
 		Member member = memberService.findMemberByCardId(cardId);
 
-		if (member == null) {
-			
-
-		} else {
-			member.setDateRegistered(LocalDate.now());
+		if (member != null) {
 			memberService.registerOrRenewMember(member);
-			
 		}
 
 		return "redirect:/member-renew";

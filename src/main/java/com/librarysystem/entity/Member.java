@@ -46,14 +46,13 @@ public class Member {
 		
 
 		public Member(int cardId,String fullName,
-				String address,String phone,
-				LocalDate dateRegistered) {
+				String address,String phone) {
 	
 			this.cardId = cardId;
 			this.fullName = fullName;
 			this.address = address;
 			this.phone = phone;
-			this.dateRegistered = dateRegistered;
+			this.dateRegistered = LocalDate.now();
 		}
 
 

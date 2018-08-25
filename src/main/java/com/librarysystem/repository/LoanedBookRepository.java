@@ -18,6 +18,7 @@ public interface LoanedBookRepository extends JpaRepository<LoanedBook,Integer>,
 
 		List<LoanedBook> findLoanedBookByMember_CardId(int cardId); 
 		
+	
 		@Modifying
 		@Query("DELETE FROM LoanedBook lb WHERE lb.member.cardId = :#{#member.cardId}")
 		void deleteLoanedBookByMember_CardId(@Param("member") Member member);

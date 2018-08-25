@@ -52,8 +52,9 @@ public class LoanedBookServiceImpl implements LoanedBookService {
 		
 		isbnToLoan.stream().forEach(isbn -> {
 			Book book = bookRepository.findBookByIsbn(isbn);
-			
+		
 			if (book != null && book.isAvailable()) {
+		
 				logger.debug("Book:{}", book);
 				loanedBookRepository.save(new LoanedBook(member, book, dateOut, dateDue));
 				

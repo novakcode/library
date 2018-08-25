@@ -59,10 +59,10 @@ public class BookController {
 
 	@GetMapping("/find-book-by-isbn")
 	public String findBookByIsbn(@RequestParam("isbn") String isbn, Model model) {
-
+		
 		Book book = bookService.findBookByIsbn(isbn);
 		if (book == null) {
-			return "redirect:/book-find";
+			return "book/book-find";
 		}
 		
 		model.addAttribute("book", book);
@@ -85,7 +85,7 @@ public class BookController {
 			
 			Page<Book> bookList = bookService.findBookByAuthor(author, PageRequest.of(page.get() - 1, PAGE_SIZE));
 			
-			if(bookList.hasContent()){
+			if(bookList != null && bookList.hasContent()){
 				
 				Pager pager = new Pager(NAVIGATION_PAGE_SIZE,page.get(),bookList.getTotalPages());
 				
@@ -100,7 +100,7 @@ public class BookController {
 			
 			
 			
-			return "redirect:/book-find";
+			return "book/book-find";
 		
 
 	
@@ -119,7 +119,7 @@ public class BookController {
 		
 		Page<Book> bookList = bookService.findBookByTitle(title, PageRequest.of(page.get() - 1,PAGE_SIZE));
 		
-		if(bookList.hasContent())
+		if(bookList != null && bookList.hasContent())
 		{
 			Pager pager = new Pager(NAVIGATION_PAGE_SIZE,page.get(),bookList.getTotalPages());
 			
@@ -145,14 +145,13 @@ public class BookController {
 	 * Loans list of books(or a single book) to a member with card id.
 	 */
 	@PostMapping("/loan-book")
-	public String loanBook(@RequestParam("cardId") int cardId,@RequestParam List<String> isbn,Model model){
+	public String loanBook(@RequestParam("cardId") int cardId,@RequestParam List<String> isbn){
 		
 		Member member = memberService.findMemberByCardId(cardId);
 		
 		
 		
 		if(member == null){
-			model.addAttribute("message", "Card Id not valid.");
 			return "redirect:/book-loan";
 		}
 		
@@ -161,8 +160,7 @@ public class BookController {
 		loanedBookService.loanBooks(isbn, member);
 		
 		
-		model.addAttribute("message", "Book/s loaned to Card Id:" + member.getCardId()+".");
-		
+	
 		return "redirect:/book-loan";
 	}
 	
@@ -182,7 +180,6 @@ public class BookController {
 	
 	@PostMapping("/register-book")
 	public String registerBook(@Valid @ModelAttribute("newBook") Book newBook, BindingResult result) {
-
 		if (result.hasErrors()) {
 			
 			return "redirect:/book-register";
